@@ -1,0 +1,10 @@
+<component name="libraryTable">
+  <library name="SQL">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/SQL/vandermeersch_laurent_bekkari_ibrahim_sql.zip!/" />
+      <root url="jar://$PROJECT_DIR$/SQL/version5_12_sql.zip!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

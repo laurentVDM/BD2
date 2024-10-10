@@ -1,0 +1,22 @@
+CREATE FUNCTION projet.afficherCoursEtudiant (_email varchar(50)) RETURNS SETOF RECORD AS $$
+DECLARE
+    _cours RECORD;
+    _sortie RECORD;
+BEGIN
+    FOR _cours IN SELECT ac.code_cours, ac.nom, projets
+            FROM projet.afficherCours ac, projet.inscriptions_cours ic
+            WHERE ac.code_cours = ic.cours
+            AND ic.email_etudiant = '_email'
+        LOOP
+            SELECT _cours.code_cours, _cours.nom,_cours.projets INTO _sortie;
+            RETURN NEXT _sortie;
+        END LOOP;
+
+
+    SELECT ac.code_cours, ac.nom, projets
+            FROM projet.afficherCours ac, projet.inscriptions_cours ic
+            WHERE ac.code_cours = ic.cours
+            AND ic.email_etudiant = '_email';
+    RETURN;
+end;
+$$ language plpgsql;

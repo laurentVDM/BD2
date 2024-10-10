@@ -1,0 +1,42 @@
+--8)
+--Visualiser toutes les compositions de groupe d’un projet (en donnant l’identifiant de projet).
+--Les résultats seront affichés sur 5 colonnes. On affichera le numéro de groupe, le nom et prénom de l’étudiant,
+-- si le groupe est complet, et si le groupe a été validé. Tous les numéros de groupe doivent apparaître même si les
+-- groupes correspondants sont vides. SI un groupe est vide, on affichera null pour le nom et prénom de l’étudiant.
+-- Les résultats seront triés par numéro de groupe
+
+CREATE OR REPLACE FUNCTION projet.afficherGroupes(_code_projet char(15)) RETURNS SETOF RECORD AS $$
+DECLARE
+    _num_groupe integer;
+    _nom_etudiant varchar(50);
+    _prenom_etudiant varchar(50);
+    _est_complet bool;
+    _est_valide bool;
+    _ligne_sortie RECORD;
+BEGIN
+    FOR _num_groupe in
+        SELECT g.projet
+        FROM projet.groupes g, projet.inscriptions_groupe ig
+        WHERE g.projet = _code_projet
+        AND ig.projet = g.projet
+    LOOP
+        _ligne_sortie:= _ligne_sortie || _sep || _projet.code_projet;
+        _sep := ', ';
+    END LOOP;
+    IF EXISTS(
+        SELECT
+        FROM projet.inscriptions_groupe ig, projet.groupes g
+        WHERE g.num_groupe = ig.num_groupe
+        AND g.projet = ig.projet
+        ) THEN _nom_etudiant = 'null' AND _prenom_etudiant = 'null';
+    END IF;
+END;
+$$ LANGUAGE plpgsql;
+--test 7)
+SELECT * FROM projet.afficherGroupes('PROJ00000000000');
+
+--APPLICATION ETUDIANT
+
+--check format email
+
+--canger le 7, moyen sans fonction

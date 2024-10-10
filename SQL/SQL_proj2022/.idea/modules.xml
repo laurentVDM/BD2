@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/ApplicationCentrale/ApplicationCentrale.iml" filepath="$PROJECT_DIR$/ApplicationCentrale/ApplicationCentrale.iml" />
+      <module fileurl="file://$PROJECT_DIR$/ApplicationEtudiant/ApplicationEtudiant.iml" filepath="$PROJECT_DIR$/ApplicationEtudiant/ApplicationEtudiant.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/SQL_proj2022.iml" filepath="$PROJECT_DIR$/.idea/SQL_proj2022.iml" />
+    </modules>
+  </component>
+</project>

@@ -1,0 +1,27 @@
+--INSERTS
+
+INSERT INTO projet.etudiants VALUES ( DEFAULT, 'Vandermeersch', 'laurent', 'laurent.vandermeersch@student.vinci.be',
+                                     '$2a$10$P8iktWWGCHLKCiCZtyk.n.nldkfoKNgyRqsGPpp79lvz8H8MpmIhi' );  --mdp = 'mdp'
+INSERT INTO projet.etudiants VALUES ( DEFAULT, 'Bekkari', 'ibrahim', 'ibrahim.bekkari@student.vinci.be',
+                                     '$2a$10$P8iktWWGCHLKCiCZtyk.n.nldkfoKNgyRqsGPpp79lvz8H8MpmIhi' );
+INSERT INTO projet.etudiants VALUES ( DEFAULT, 'Damas', 'christophe', 'christophe.damas@student.vinci.be',
+                                     '$2a$10$P8iktWWGCHLKCiCZtyk.n.nldkfoKNgyRqsGPpp79lvz8H8MpmIhi' );
+
+INSERT INTO projet.cours VALUES ( 'BINV2040', 'Gestion de donnees', 6, 2 );
+INSERT INTO projet.cours VALUES ( 'BINV2080', 'Organisation des entreprises', 6, 2 );
+INSERT INTO projet.cours VALUES ( 'BINV2130', 'Programmation java avance', 5, 2 );
+
+INSERT INTO projet.inscriptions_cours VALUES ( 'BINV2040', 'laurent.vandermeersch@student.vinci.be' );
+INSERT INTO projet.inscriptions_cours VALUES ( 'BINV2040', 'ibrahim.bekkari@student.vinci.be' );
+INSERT INTO projet.inscriptions_cours VALUES ( 'BINV2040', 'christophe.damas@student.vinci.be' );
+
+INSERT INTO projet.projets VALUES ( 'PROJ00000000000', 'projet sql', DEFAULT, '2022-12-10', 10, 'BINV2040' );
+INSERT INTO projet.projets VALUES ( 'PROJ00000000010', 'projet java', DEFAULT, '2022-12-10', 10, 'BINV2130' );
+--
+-- ATTENTION, VERIFIER QUE NUM_GROUPE NE DOIT PAS ETRE DEFAULT ET PAS 1
+--
+INSERT INTO projet.groupes VALUES ( 1, 'PROJ00000000000', 2, DEFAULT, DEFAULT );
+INSERT INTO projet.groupes VALUES ( 2, 'PROJ00000000000', 2, FALSE, 2 );
+
+INSERT INTO projet.inscriptions_groupe VALUES ( 2, 'PROJ00000000000', 1);
+INSERT INTO projet.inscriptions_groupe VALUES ( 2, 'PROJ00000000000', 2);
